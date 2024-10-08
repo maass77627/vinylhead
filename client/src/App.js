@@ -1,23 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+ import Signup from './Signup';
+//  import Login from './Login';
+//  import { useState } from "react";
+ import { useEffect } from "react";
 function App() {
+
+  //  const [user, setUser] = useState(null);
+  useEffect(() => {
+    fetch("/records", {
+      mode: 'no-cors'
+  })
+    .then((response) => response.json())
+    .then((json) => { console.log(json)
+    })
+     }, []) 
+
+
+
+
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <h1>VinylHead</h1>
+      <img id="headimage" src="https://th.bing.com/th/id/OIP.3J7PcVZf3uIt04PUYAvMTwHaHa?rs=1&pid=ImgDetMain record.jpg" alt="record"></img>
       </header>
+
+
+
+       <Signup></Signup> 
+      {/* <Login></Login> */}
     </div>
   );
 }

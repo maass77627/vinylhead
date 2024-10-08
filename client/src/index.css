@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+#headimage {
+  height: 75px;
+  width: 75px;
+}
+#signupform {
+  height: 300px;
+  width: 400px;
+  background-color: darkolivegreen;
+  
+}
