@@ -21,3 +21,22 @@ code {
   background-color: darkolivegreen;
   
 }
+
+#record_image {
+  height: 200px;
+  width: 200px;
+  background-color: darkslategrey;
+}
+
+#rcont {
+  background-color: rgb(5, 78, 78);
+  height: 300px;
+  width: 1000px;
+}
+
+#record {
+   float: right; 
+  height: 200px;
+  width: 200px;
+  background-color: darkolivegreen;
+}
