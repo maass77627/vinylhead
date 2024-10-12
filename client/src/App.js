@@ -9,9 +9,10 @@ import RecordContainer from './RecordContainer';
 
 function App() {
     const [records, setRecords] = useState("")
-  //  const [user, setUser] = useState(null);
-  const [appLoaded, setAppLoaded] = useState(false)
-  const [toggle, setToggle] = useState(false)
+    const [user, setUser] = useState(null);
+    const [appLoaded, setAppLoaded] = useState(false)
+    const [toggle, setToggle] = useState(false)
+    const [toggletwo, setToggleTwo] = useState(false)
 
    useEffect(() => {
     fetch("/records", {
@@ -27,15 +28,32 @@ function App() {
     })
       }, []) 
 
+
+      useEffect(() => {
+        fetch("/me").then((response) => {
+          if (response.ok) {
+            response.json().then((user) => setUser(user));
+          }
+        });
+      }, []);
+
       function handleClick() {
         setToggle(!toggle)
+      }
+
+      function handleLogin() {
+        setToggleTwo(!toggletwo)
       }
 
       function handleLogout() {
         fetch("/logout", {
           method: "DELETE",
-        })
+        }).then(() => logOut())
       
+      }
+
+      function logOut() {
+        setUser(null)
       }
 
 
@@ -47,17 +65,18 @@ function App() {
       <h1>VinylHead</h1>
 
       <img id="headimage" src="https://th.bing.com/th/id/OIP.3J7PcVZf3uIt04PUYAvMTwHaHa?rs=1&pid=ImgDetMain record.jpg" alt="record"></img>
+      {user ? <h2>Welcome, {user.username}!</h2> : <Login onLogin={setUser} />}
       </header>
 
-
+        <button onClick={handleLogin}>Login</button>
         <button onClick={handleClick}>Signup</button>
         <button onClick={handleLogout}>Logout</button>
 
        
        {toggle ? <Signup></Signup> : null}
-       
+       {toggletwo ? <Login></Login> : null}
        {appLoaded ? <RecordContainer records={records}></RecordContainer> : null}
-      <Login></Login>
+      
     </div>
   );
 }

@@ -12,14 +12,14 @@ function Signup() {
         console.log(username)
         fetch('/signup', {
             method: "POST",
-            mode: "no-cors",
+            // mode: "no-cors",
             headers: {
                 "Content-Type": "application/json"
 
             },
             body: JSON.stringify({
-                username: username,
-                password: password,
+                username,
+                password,
                 passwordConfirmation: passwordConfirmation
 
             })

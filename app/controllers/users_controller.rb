@@ -17,6 +17,7 @@ class UsersController < ApplicationController
         
          if user.valid?
             session[:user_id] = user.id
+            # byebug
             render json: user, status: :created
          else
              render json: {errors: user.errors.full_messages}, status: :unprocessable_entity

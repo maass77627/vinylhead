@@ -17,10 +17,11 @@ code {
 }
 
 #login {
-  height: 500px;
+  height: 50px;
   width: 500px;
   background-color: darkolivegreen;
 }
+
 #signupform {
   height: 100px;
   width: 400px;

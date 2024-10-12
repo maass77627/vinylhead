@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function Login() {
+function Login({onLogin}) {
     const [username, setUsername] = useState("")
 
     function handleSubmit(e) {
@@ -15,7 +15,9 @@ function Login() {
             body: JSON.stringify({ username }),
           })
             .then((r) => r.json())
-            .then((json) => console.log(json));
+            .then((json) => {
+              onLogin(json)
+              console.log(json)});
     }
 
     return (
