@@ -2,7 +2,7 @@
 import './App.css';
 import Signup from './Signup';
 import RecordContainer from './RecordContainer';
-//  import Login from './Login';
+  import Login from './Login';
  import { useState } from "react";
  import { useEffect } from "react";
 
@@ -31,6 +31,13 @@ function App() {
         setToggle(!toggle)
       }
 
+      function handleLogout() {
+        fetch("/logout", {
+          method: "DELETE",
+        })
+      
+      }
+
 
 
   return (
@@ -44,13 +51,13 @@ function App() {
 
 
         <button onClick={handleClick}>Signup</button>
+        <button onClick={handleLogout}>Logout</button>
 
-
-       {/* <Signup></Signup>  */}
+       
        {toggle ? <Signup></Signup> : null}
        
        {appLoaded ? <RecordContainer records={records}></RecordContainer> : null}
-      
+      <Login></Login>
     </div>
   );
 }

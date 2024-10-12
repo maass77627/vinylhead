@@ -15,8 +15,14 @@ code {
   height: 75px;
   width: 75px;
 }
+
+#login {
+  height: 500px;
+  width: 500px;
+  background-color: darkolivegreen;
+}
 #signupform {
-  height: 300px;
+  height: 100px;
   width: 400px;
   background-color: darkolivegreen;
   
@@ -31,11 +37,11 @@ code {
 #rcont {
   background-color: rgb(5, 78, 78);
   height: 300px;
-  width: 1000px;
+  width: 1300px;
 }
 
 #record {
-   float: right; 
+  float: left; 
   height: 200px;
   width: 200px;
   background-color: darkolivegreen;

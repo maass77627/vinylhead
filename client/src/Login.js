@@ -1,29 +1,33 @@
-// import { useState } from "react"
+import { useState } from "react"
 
-// function Login() {
-//     const [username, setUsername] = useState("")
+function Login() {
+    const [username, setUsername] = useState("")
 
-//     function handleSubmit(e) {
-//         e.preventDefault()
-//         fetch("http://localhost:3003/login", {
-//             method: "POST",
-//             headers: {
-//               "Content-Type": "application/json",
-//             },
-//             body: JSON.stringify({ username }),
-//           })
-//             .then((r) => r.json())
-//             .then((user) => console.log(user));
-//     }
+    function handleSubmit(e) {
+        e.preventDefault()
+        console.log(username)
+        fetch("/login", {
+            method: "POST",
+            // mode: "no-cors",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username }),
+          })
+            .then((r) => r.json())
+            .then((json) => console.log(json));
+    }
 
-//     return (
-//         <form onSubmit={handleSubmit}>
-//             <label>Username:</label>
-//             <input type="text" id="otherusername" value={username} onChange={(e) => setUsername(e.target.value)}></input>
-//             <button type="submit">submit</button>
+    return (
+        <div id="login">
+        <form onSubmit={handleSubmit}>
+            <label>Username:</label>
+            <input type="text" id="otherusername" value={username} onChange={(e) => setUsername(e.target.value)}></input>
+            <button type="submit">submit</button>
 
-//         </form>
-//     )
-// }
+        </form>
+        </div>
+    )
+}
 
-// export default Login
+export default Login
