@@ -1,18 +1,22 @@
 
-import './App.css';
-import Signup from './Signup';
-import RecordContainer from './RecordContainer';
+  import './App.css';
+  import Signup from './Signup';
+  import RecordContainer from './RecordContainer';
+  import UserRecords from "./UserRecords"
   import Login from './Login';
- import { useState } from "react";
- import { useEffect } from "react";
-
+  import { useState } from "react";
+  import { useEffect } from "react";
+  // import { BrowserRouter, Routes, Route } from 'react-router-dom';
+//  import { BrowserRouter, Route } from 'react-router-dom';
+  // import NewRecord from './NewRecord';
 
 function App() {
     const [records, setRecords] = useState("")
     const [user, setUser] = useState(null);
     const [appLoaded, setAppLoaded] = useState(false)
     const [toggle, setToggle] = useState(false)
-    const [toggletwo, setToggleTwo] = useState(false)
+    const [userrecords, setUserrecords] = useState("")
+    // const [toggletwo, setToggleTwo] = useState(false)
 
    useEffect(() => {
     fetch("/records", {
@@ -28,6 +32,21 @@ function App() {
     })
       }, []) 
 
+      // useEffect(() => {
+      //   fetch(`/users/${user.id}/records`, {
+      //     mode: 'no-cors'
+      // })
+      //   .then((response) => response.json())
+      //   .then((json) => { 
+      //     // setRecords(json)
+      //     console.log(json)
+      //     console.log("user record useeffect loaded")
+          
+    
+      //   })
+      //     }, [user]) 
+
+
 
       useEffect(() => {
         fetch("/me").then((response) => {
@@ -41,9 +60,9 @@ function App() {
         setToggle(!toggle)
       }
 
-      function handleLogin() {
-        setToggleTwo(!toggletwo)
-      }
+      // function handleLogin() {
+      //   setToggleTwo(!toggletwo)
+      // }
 
       function handleLogout() {
         fetch("/logout", {
@@ -56,26 +75,51 @@ function App() {
         setUser(null)
       }
 
+      function showColl(e) {
+        console.log(e.target.value)
+        console.log(user)
+        fetch(`/users/${user.id}/records`, {
+          mode: 'no-cors'
+      })
+        .then((response) => response.json())
+        .then((json) => { 
+           setUserrecords(json)
+           
+          console.log(json)
+          
+          console.log(userrecords)
+    
+        })
 
+      }
 
   return (
     <div className="App">
       <header className="App-header">
-
-      <h1>VinylHead</h1>
-
-      <img id="headimage" src="https://th.bing.com/th/id/OIP.3J7PcVZf3uIt04PUYAvMTwHaHa?rs=1&pid=ImgDetMain record.jpg" alt="record"></img>
-      {user ? <h2>Welcome, {user.username}!</h2> : <Login onLogin={setUser} />}
+          <h1>VinylHead</h1>
+          <img id="headimage" src="https://th.bing.com/th/id/OIP.3J7PcVZf3uIt04PUYAvMTwHaHa?rs=1&pid=ImgDetMain record.jpg" alt="record"></img>
+          {user ? <h2>Welcome, {user.username}!</h2> : <Login onLogin={setUser} />}
+          {user ? <button onClick={(e) => showColl(e)}>My Collection</button> : null}
       </header>
 
-        <button onClick={handleLogin}>Login</button>
+      
+      {/* <BrowserRouter>
+            <Routes>
+            <Route path="/" element={<NewRecord />}>
+            </Route>
+            </Routes>
+       </BrowserRouter> */}
+    
+
+        
         <button onClick={handleClick}>Signup</button>
         <button onClick={handleLogout}>Logout</button>
 
        
        {toggle ? <Signup></Signup> : null}
-       {toggletwo ? <Login></Login> : null}
-       {appLoaded ? <RecordContainer records={records}></RecordContainer> : null}
+       {userrecords ? <UserRecords userrecords={userrecords}></UserRecords> : null} 
+       {appLoaded ? <RecordContainer userrecords={userrecords} records={records} user={user}></RecordContainer> : null}
+         {/* {userrecords ? <UserRecords userrecords={userrecords}></UserRecords> : null}  */}
       
     </div>
   );

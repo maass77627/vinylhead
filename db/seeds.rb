@@ -10,6 +10,8 @@
 # Record.create!(title: 'Kid A', description: 'rock and roll', user_id: 1, image: "kida.jpg")
 # Record.create!(title: 'neutral milk hotel', description: '1st album', user_id: 1, image: "neutralmilkhotel.jpg")
 # Record.create!(title: 'seargent pepper', description: 'good sound', user_id: 1, image: "sgtpepper.jpg") 
-Record.create!(title: 'theband', description: 'good sound', user_id: 1, image: "theband.jpg") 
-Record.create!(title: 'thewand', description: 'good sound', user_id: 1, image: "thewand.jpg") 
+# Record.create!(title: 'theband', description: 'good sound', user_id: 1, image: "theband.jpg") 
+# Record.create!(title: 'thewand', description: 'good sound', user_id: 1, image: "thewand.jpg") 
 
+Record.create!(title: 'bowie', description: 'good sound', user_id: 2, image: "davidbowie.jpg") 
+Record.create!(title: 'velvetunderground', description: 'good sound', user_id: 3, image: "andywarhol.jpg") 
