@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   # resources :users
-  resources :records
+   resources :records
 
-   resources :users, only: [:show] do
-    resources :records, only: [:index]
+    resources :users, only: [:show, :index] do
+    resources :records, only: [:index, :show]
    end
 
 

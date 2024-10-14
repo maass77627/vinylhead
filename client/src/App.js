@@ -6,9 +6,10 @@
   import Login from './Login';
   import { useState } from "react";
   import { useEffect } from "react";
+  import NewRecord from './NewRecord';
   // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //  import { BrowserRouter, Route } from 'react-router-dom';
-  // import NewRecord from './NewRecord';
+  
 
 function App() {
     const [records, setRecords] = useState("")
@@ -16,7 +17,7 @@ function App() {
     const [appLoaded, setAppLoaded] = useState(false)
     const [toggle, setToggle] = useState(false)
     const [userrecords, setUserrecords] = useState("")
-    // const [toggletwo, setToggleTwo] = useState(false)
+    const [showForm, setShowForm] = useState(false)
 
    useEffect(() => {
     fetch("/records", {
@@ -60,9 +61,6 @@ function App() {
         setToggle(!toggle)
       }
 
-      // function handleLogin() {
-      //   setToggleTwo(!toggletwo)
-      // }
 
       function handleLogout() {
         fetch("/logout", {
@@ -73,6 +71,10 @@ function App() {
 
       function logOut() {
         setUser(null)
+      }
+
+      function handleForm() {
+        setShowForm(!showForm)
       }
 
       function showColl(e) {
@@ -110,17 +112,17 @@ function App() {
             </Routes>
        </BrowserRouter> */}
     
-
+       
         
         <button onClick={handleClick}>Signup</button>
         <button onClick={handleLogout}>Logout</button>
-
+        <button onClick={handleForm}>Add Record</button>
        
+       {showForm ? <NewRecord></NewRecord> : null}
        {toggle ? <Signup></Signup> : null}
        {userrecords ? <UserRecords userrecords={userrecords}></UserRecords> : null} 
        {appLoaded ? <RecordContainer userrecords={userrecords} records={records} user={user}></RecordContainer> : null}
-         {/* {userrecords ? <UserRecords userrecords={userrecords}></UserRecords> : null}  */}
-      
+
     </div>
   );
 }
