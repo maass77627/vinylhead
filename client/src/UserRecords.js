@@ -11,7 +11,7 @@ console.log(userrecords)
             {userrecords ? userrecords.map((record) => 
             <div key={record.id} id="userrecord">
             <p>{record.title}</p> 
-            <img id="userimage"src={record.image} alt="record"></img>
+            <img id="userimage" src={record.image} alt="record"></img>
             </div>
             ) : null} 
         

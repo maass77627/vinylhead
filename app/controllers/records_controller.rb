@@ -16,21 +16,27 @@ class RecordsController < ApplicationController
           render json: records, include: :user
     end
 
-    def create
-        byebug
-        # record = Record.create!(record_params)
-        # byebug
-        # render json: record, status: :created
+    # def create
+    #     byebug
+    #     # record = Record.create!(record_params)
+    #     # byebug
+    #     # render json: record, status: :created
 
-        user_id = session[:user_id]
-        # user = User.find(user_id)
-        record = Record.create(record_params)
-        # user.records << record
-        record.user_id = user.id
+    #     user_id = session[:user_id]
+    #     # user = User.find(user_id)
+    #     record = Record.create(record_params)
+    #     # user.records << record
+    #     record.user_id = user.id
         
-        # byebug
-        render json: record, status: :created
+    #     # byebug
+    #     render json: record, status: :created
         
+    # end
+
+    def create
+      record = Record.create(user_id: session[:user_id])
+    render json: record, status: :created
+
     end
 
     def show
