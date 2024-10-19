@@ -6,7 +6,8 @@ function NewRecord() {
     const [formData, setFormData] = useState({
         title: "George",
         image: "hello",
-        description: "what it is"
+        description: "what it is",
+        user_id: 2
        })
 
        function handleTitleChange(e) {
@@ -33,21 +34,29 @@ function NewRecord() {
         })
        }
 
+       function handleIdChange(e) {
+        console.log(e.target.value)
+        setFormData({
+            ...formData, 
+           user_id: e.target.value
+        })
+       }
+
+       function handleSubmit(e) {
+        e.preventDefault()
+            console.log(formData)
+            fetch("/records", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json"
+                }, 
+                body: JSON.stringify(formData)
+              })
+       }
+
        
     
-        function handleSubmit(e) {
-            e.preventDefault()
-            console.log(formData)
-            fetch('/records', {
-                method: "POST",
-                  mode: 'no-cors',
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(formData) 
-            }).then((r) => r.json())
-            .then((json) => console.log(json))
-        }
+        
 
        
 
@@ -60,7 +69,8 @@ function NewRecord() {
                     <input onChange={handleImageChange} type="text" value={formData.image}></input><br></br>
                     <label>Description</label>
                     <input onChange={handleDescriptionChange} type="text" value={formData.description}></input><br></br>
-                    
+                    <label>user_id</label>
+                    <input onChange={handleIdChange} type="text" value={formData.user_id}></input><br></br>
                     <button type="submit">submit</button>
                 </form>
 

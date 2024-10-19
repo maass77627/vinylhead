@@ -33,6 +33,12 @@ function App() {
     })
       }, []) 
 
+      function deleteRecord(id) {
+       
+          const updatedRecords = records.filter(record => record.id !== id)
+          setRecords(updatedRecords)
+      }
+
       // useEffect(() => {
       //   fetch(`/users/${user.id}/records`, {
       //     mode: 'no-cors'
@@ -113,7 +119,7 @@ function App() {
        </BrowserRouter> */}
     
        
-        
+        {/* <span>click records for options</span><br></br> */}
         <button onClick={handleClick}>Signup</button>
         <button onClick={handleLogout}>Logout</button>
         <button onClick={handleForm}>Add Record</button>
@@ -121,7 +127,7 @@ function App() {
        {showForm ? <NewRecord></NewRecord> : null}
        {toggle ? <Signup></Signup> : null}
        {userrecords ? <UserRecords userrecords={userrecords}></UserRecords> : null} 
-       {appLoaded ? <RecordContainer userrecords={userrecords} records={records} user={user}></RecordContainer> : null}
+       {appLoaded ? <RecordContainer deleteRecord={deleteRecord} userrecords={userrecords} records={records} user={user}></RecordContainer> : null}
 
     </div>
   );

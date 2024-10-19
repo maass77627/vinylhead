@@ -32,7 +32,7 @@ code {
 #signupform {
   height: 100px;
   width: 400px;
-  background-color: darkolivegreen;
+  background-color: rgb(167, 110, 159);
   
 }
 
@@ -63,6 +63,8 @@ code {
   background-color: darkslategrey;
 }
 
+
+
 #rcont {
   background-color: rgb(5, 78, 78);
   height: 1000px;
@@ -90,4 +92,13 @@ code {
   font-size: 20px;
   color: white; 
    /* color: goldenrod; */ 
+}
+
+#options {
+  margin-top: -200px;
+   position: relative; 
+  
+  height: 150px;
+  width: 200px;
+  background-color: rgb(160, 83, 147);
 }

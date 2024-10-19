@@ -3,15 +3,11 @@ class RecordsController < ApplicationController
 # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index
-        #  records = Record.all
-        #  render json: records
         if params[:user_id]
             user = User.find_by!(id: params[:user_id])
            records = user.records
           else
           records = Record.all
-          
-         
           end
           render json: records, include: :user
     end
@@ -34,8 +30,8 @@ class RecordsController < ApplicationController
     # end
 
     def create
-      record = Record.create(user_id: session[:user_id])
-    render json: record, status: :created
+      record = Record.create(record_params)
+      render json: record, status: :created
 
     end
 
