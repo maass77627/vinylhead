@@ -11,7 +11,7 @@ function NewRecord() {
        })
 
        function handleTitleChange(e) {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         setFormData({
             ...formData, 
             title: e.target.value
@@ -19,7 +19,7 @@ function NewRecord() {
        }
 
        function handleImageChange(e) {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         setFormData({
             ...formData, 
            image: e.target.value
@@ -27,7 +27,7 @@ function NewRecord() {
        }
 
        function handleDescriptionChange(e) {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         setFormData({
             ...formData, 
            description: e.target.value
@@ -35,7 +35,7 @@ function NewRecord() {
        }
 
        function handleIdChange(e) {
-        console.log(e.target.value)
+        // console.log(e.target.value)
         setFormData({
             ...formData, 
            user_id: e.target.value
@@ -44,7 +44,7 @@ function NewRecord() {
 
        function handleSubmit(e) {
         e.preventDefault()
-            console.log(formData)
+            // console.log(formData)
             fetch("/records", {
                 method: "POST",
                 headers: {

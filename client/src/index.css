@@ -30,6 +30,7 @@ code {
 }
 
 #signupform {
+  /* position: relative; */
   height: 100px;
   width: 400px;
   background-color: rgb(167, 110, 159);
@@ -41,7 +42,7 @@ code {
   width: 100px;
 }
 
-#userrecord {
+.userrecord {
   float: right;
   font-size: 15px;
   /* padding: 3px; */
@@ -71,7 +72,7 @@ code {
   width: 1300px;
 }
 
-#record {
+.record {
    padding: 25px;
    float: left; 
   margin-bottom: 25px;

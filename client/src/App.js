@@ -26,12 +26,12 @@ function App() {
     .then((response) => response.json())
     .then((json) => { 
       setRecords(json)
-      console.log(json)
-      console.log("useeffect loaded")
+      // console.log(json)
+      // console.log("useeffect loaded")
       setAppLoaded(true)
 
     })
-      }, []) 
+      }, [records]) 
 
       function deleteRecord(id) {
        
@@ -84,8 +84,8 @@ function App() {
       }
 
       function showColl(e) {
-        console.log(e.target.value)
-        console.log(user)
+        // console.log(e.target.value)
+        // console.log(user)
         fetch(`/users/${user.id}/records`, {
           mode: 'no-cors'
       })
@@ -93,9 +93,9 @@ function App() {
         .then((json) => { 
            setUserrecords(json)
            
-          console.log(json)
+          // console.log(json)
           
-          console.log(userrecords)
+          // console.log(userrecords)
     
         })
 
@@ -127,7 +127,7 @@ function App() {
        {showForm ? <NewRecord></NewRecord> : null}
        {toggle ? <Signup></Signup> : null}
        {userrecords ? <UserRecords userrecords={userrecords}></UserRecords> : null} 
-       {appLoaded ? <RecordContainer deleteRecord={deleteRecord} userrecords={userrecords} records={records} user={user}></RecordContainer> : null}
+       {appLoaded ? <RecordContainer  deleteRecord={deleteRecord} userrecords={userrecords} records={records} user={user}></RecordContainer> : null}
 
     </div>
   );
