@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
-function Record({record, deleteRecord, user}) {
-    // console.log(record)
-    // console.log("record loaded")
+function Record({record, deleteRecord, user, showColl}) {
+    
     const [toggle, setToggle] = useState(false)
 
 
@@ -13,8 +12,7 @@ function Record({record, deleteRecord, user}) {
 
 
 function deletedRecord(e) {
-    // console.log(e.target.parentNode.parentNode.id)
-    // console.log(record)
+   
     fetch(`/records/${e.target.parentNode.parentNode.id}`, {
         method: "DELETE"
     })
@@ -22,12 +20,8 @@ function deletedRecord(e) {
 }
 
 
- function addRecord(e, record, user) {
-    console.log(user)
-     console.log(e.target.parentNode.parentNode.id)
-     console.log(e.target.id)
-    console.log(record)
-    //  console.log(record.user_id)
+ function addRecord(e) {
+    
     
       fetch(`/records/${e.target.parentNode.parentNode.id}`, {
         // mode: 'no-cors',
@@ -37,8 +31,10 @@ function deletedRecord(e) {
         }, 
         body: JSON.stringify({user_id: e.target.id})
 })
- .then((response) => response.json())
- .then((json) => console.log(json))
+  .then((response) => response.json())
+  .then((json) => {console.log(json)
+    showColl()
+   } )
  }
 
 

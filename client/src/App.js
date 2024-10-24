@@ -8,6 +8,7 @@
   import { useEffect } from "react";
   import NewRecord from './NewRecord';
   // import { BrowserRouter, Routes, Route } from 'react-router-dom';
+  // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 //  import { BrowserRouter, Route } from 'react-router-dom';
   
 
@@ -26,12 +27,19 @@ function App() {
     .then((response) => response.json())
     .then((json) => { 
       setRecords(json)
-      // console.log(json)
-      // console.log("useeffect loaded")
+      
       setAppLoaded(true)
 
     })
       }, [records]) 
+
+      function deleteUserRecord(id, userrecords) {
+        console.log(userrecords)
+        console.log(id)
+        const updatedRecords = userrecords.filter(record => record.id !== id)
+        console.log(updatedRecords)
+        setUserrecords(updatedRecords)
+      }
 
       function deleteRecord(id) {
        
@@ -39,19 +47,6 @@ function App() {
           setRecords(updatedRecords)
       }
 
-      // useEffect(() => {
-      //   fetch(`/users/${user.id}/records`, {
-      //     mode: 'no-cors'
-      // })
-      //   .then((response) => response.json())
-      //   .then((json) => { 
-      //     // setRecords(json)
-      //     console.log(json)
-      //     console.log("user record useeffect loaded")
-          
-    
-      //   })
-      //     }, [user]) 
 
 
 
@@ -84,18 +79,13 @@ function App() {
       }
 
       function showColl(e) {
-        // console.log(e.target.value)
-        // console.log(user)
+       
         fetch(`/users/${user.id}/records`, {
           mode: 'no-cors'
       })
         .then((response) => response.json())
         .then((json) => { 
            setUserrecords(json)
-           
-          // console.log(json)
-          
-          // console.log(userrecords)
     
         })
 
@@ -109,6 +99,8 @@ function App() {
           {user ? <h2>Welcome, {user.username}!</h2> : <Login onLogin={setUser} />}
           {user ? <button onClick={(e) => showColl(e)}>My Collection</button> : null}
       </header>
+
+      
 
       
       {/* <BrowserRouter>
@@ -126,8 +118,8 @@ function App() {
        
        {showForm ? <NewRecord></NewRecord> : null}
        {toggle ? <Signup></Signup> : null}
-       {userrecords ? <UserRecords userrecords={userrecords}></UserRecords> : null} 
-       {appLoaded ? <RecordContainer  deleteRecord={deleteRecord} userrecords={userrecords} records={records} user={user}></RecordContainer> : null}
+       {userrecords ? <UserRecords deleteUserRecord={deleteUserRecord} userrecords={userrecords}></UserRecords> : null} 
+       {appLoaded ? <RecordContainer showColl={showColl} deleteRecord={deleteRecord} userrecords={userrecords} records={records} user={user}></RecordContainer> : null}
 
     </div>
   );

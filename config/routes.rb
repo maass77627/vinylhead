@@ -3,7 +3,7 @@ Rails.application.routes.draw do
    resources :records
 
     resources :users, only: [:show, :index] do
-    resources :records, only: [:index, :show]
+    resources :records, only: [:index, :show, :destroy]
    end
 
 

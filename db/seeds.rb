@@ -15,3 +15,4 @@
 
 Record.create!(title: 'bowie', description: 'good sound', user_id: 2, image: "davidbowie.jpg") 
 Record.create!(title: 'velvetunderground', description: 'good sound', user_id: 3, image: "andywarhol.jpg") 
+Record.create!(title: 'alt j', description: 'good sound', user_id: 3, image: "altj.jpg") 

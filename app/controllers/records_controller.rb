@@ -12,22 +12,18 @@ class RecordsController < ApplicationController
           render json: records, include: :user
     end
 
-    # def create
-    #     byebug
-    #     # record = Record.create!(record_params)
-    #     # byebug
-    #     # render json: record, status: :created
+    
+    def update
+      record = Record.find_by(id: params[:id])
+      if record
+      record.update(record_params)
+      # byebug
+      render json: record
+    else
+      render json: { error: "Record not found" }, status: :not_found
+    end
 
-    #     user_id = session[:user_id]
-    #     # user = User.find(user_id)
-    #     record = Record.create(record_params)
-    #     # user.records << record
-    #     record.user_id = user.id
-        
-    #     # byebug
-    #     render json: record, status: :created
-        
-    # end
+    end
 
     def create
       record = Record.create(record_params)
