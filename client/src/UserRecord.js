@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-function UserRecord({record, deleteUserRecord}) {
-    // console.log(userrecords)
+function UserRecord({record, deleteUserRecord, userrecords, showColl}) {
+  
     const [toggle, setToggle] = useState(false)
 
  function handleClick() {
@@ -9,17 +9,21 @@ function UserRecord({record, deleteUserRecord}) {
  }
 
  function deleteRec(e) {
-    // console.log(userrecords)
+    
      console.log(e.target.parentNode.id)
      console.log(e.target.parentNode.childNodes[0].id)
 
      fetch(`/records/${e.target.parentNode.id}`, {
              method: "PATCH", 
              headers: {
-                "Content-Type": "application/json"
+                "Content-Type" : "application/json"
              },
-             body: JSON.stringify({user_id: 0})
+             body: JSON.stringify({"user_id": 4})
          })
+         .then((response) => response.json())
+         .then((json) => {
+             showColl(e.target.parentNode.childNodes[0].id)
+            console.log(json)})
     
     
     // fetch(`/users/${e.target.parentNode.childNodes[0].id}/records/${e.target.parentNode.id}`, {

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # resources :users
+ 
    resources :records
 
     resources :users, only: [:show, :index] do
