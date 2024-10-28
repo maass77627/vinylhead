@@ -33,13 +33,7 @@ function App() {
     })
       }, [records]) 
 
-      function deleteUserRecord(id) {
-        // console.log(userrecords)
-        console.log(id)
-        // const updatedRecords = userrecords.filter(record => record.id !== id)
-        // console.log(updatedRecords)
-        // setRecords(updatedRecords)
-      }
+      
 
       function deleteRecord(id) {
        
@@ -118,7 +112,7 @@ function App() {
        
        {showForm ? <NewRecord></NewRecord> : null}
        {toggle ? <Signup></Signup> : null}
-       {userrecords ? <UserRecords showColl={showColl} deleteUserRecord={deleteUserRecord} userrecords={userrecords}></UserRecords> : null} 
+       {userrecords ? <UserRecords showColl={showColl}  userrecords={userrecords}></UserRecords> : null} 
        {appLoaded ? <RecordContainer showColl={showColl} deleteRecord={deleteRecord} userrecords={userrecords} records={records} user={user}></RecordContainer> : null}
 
     </div>

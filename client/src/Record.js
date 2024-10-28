@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
 function Record({record, deleteRecord, user, showColl}) {
+
+    // const [rating, setRating] = useState("")
     
     const [toggle, setToggle] = useState(false)
 
@@ -40,8 +42,8 @@ function deletedRecord(e) {
 
 
 function handleStyle(e) {
-    // console.log(e.target)
-     e.target.className = "empty"
+     console.log(e.target)
+    //  e.target.className = "empty"
 
 }
 

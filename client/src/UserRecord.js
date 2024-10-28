@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function UserRecord({record, deleteUserRecord, userrecords, showColl}) {
+function UserRecord({record, showColl}) {
   
     const [toggle, setToggle] = useState(false)
 
@@ -25,11 +25,7 @@ function UserRecord({record, deleteUserRecord, userrecords, showColl}) {
              showColl(e.target.parentNode.childNodes[0].id)
             console.log(json)})
     
-    
-    // fetch(`/users/${e.target.parentNode.childNodes[0].id}/records/${e.target.parentNode.id}`, {
-    //     method: "DELETE"
-    // })
-    // deleteUserRecord(e.target.parentNode.id, userrecords)
+
 } 
 
 
