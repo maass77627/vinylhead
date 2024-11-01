@@ -7,9 +7,8 @@
   import { useState } from "react";
   import { useEffect } from "react";
   import NewRecord from './NewRecord';
-  // import { BrowserRouter, Routes, Route } from 'react-router-dom';
-  // import { BrowserRouter, Routes, Route } from 'react-router-dom';
-//  import { BrowserRouter, Route } from 'react-router-dom';
+  
+  
   
 
 function App() {
@@ -88,9 +87,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <h1>VinylHead</h1>
-          <img id="headimage" src="https://th.bing.com/th/id/OIP.3J7PcVZf3uIt04PUYAvMTwHaHa?rs=1&pid=ImgDetMain record.jpg" alt="record"></img>
-          {user ? <h2>Welcome, {user.username}!</h2> : <Login onLogin={setUser} />}
+          {/* <h1>VinylHead</h1> */}
+          <img id="headimage" src="VINYLHead.png" alt="record"></img>
+          {/* <img id="headimage" src="https://th.bing.com/th/id/OIP.3J7PcVZf3uIt04PUYAvMTwHaHa?rs=1&pid=ImgDetMain record.jpg" alt="record"></img> */}
+          {user ? <h2 id="wel">Welcome, {user.username}!</h2> : <Login onLogin={setUser} />}
           {user ? <button onClick={(e) => showColl(e)}>My Collection</button> : null}
       </header>
 
@@ -102,7 +102,7 @@ function App() {
             <Route path="/" element={<NewRecord />}>
             </Route>
             </Routes>
-       </BrowserRouter> */}
+       </BrowserRouter>  */}
     
        
         {/* <span>click records for options</span><br></br> */}

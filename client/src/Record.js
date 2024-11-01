@@ -11,6 +11,9 @@ function Record({record, deleteRecord, user, showColl}) {
        setToggle(!toggle)
     }
 
+    function handleEdit(e) {
+        console.log(e)
+    }
 
 
 function deletedRecord(e) {
@@ -52,7 +55,7 @@ function handleStyle(e) {
             <p> {record.title.toUpperCase()}</p>
             <img onClick={handleClick} id="record_image" src={record.image} alt="record"></img>
             <span onClick={handleStyle} className="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-              {toggle ? <div id="options"> <label>Description:</label> <p>{record.description}</p> <br></br> <button onClick={(record) => deletedRecord(record)}>delete</button> <br></br> <button id={user.id} onClick={(e, record) => addRecord(e, record)}>add</button> </div> : null} 
+              {toggle ? <div id="options"> <label>Description:</label> <p>{record.description}</p> <br></br> <button onClick={(record) => deletedRecord(record)}>delete</button> <br></br> <button id={user.id} onClick={(e, record) => addRecord(e, record)}>add</button> <br></br> <button onClick={handleEdit}>edit</button> </div> : null} 
              
         </div>
 

@@ -5,15 +5,23 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#wel {
+  color: white;
+}
 #headimage {
-  height: 75px;
-  width: 75px;
+  /* height: 75px;
+  width: 75px; */
+
+  height: 200px;
+  width: 200px;
 }
 
 #login {
@@ -30,7 +38,7 @@ code {
 }
 
 #signupform {
-  /* position: relative; */
+ 
   height: 100px;
   width: 400px;
   background-color: rgb(167, 110, 159);
@@ -45,9 +53,9 @@ code {
 .userrecord {
   float: right;
   font-size: 15px;
-  /* padding: 3px; */
+  font-weight: bold;
   margin-right: 10px;
-  /* margin-left: 5px; */
+  
 }
 
 #userrecords {
@@ -58,16 +66,15 @@ code {
 }
 
 #record_image {
-  /* padding: 25px; */
   height: 200px;
   width: 200px;
-  background-color: darkslategrey;
+  background-color: black;
 }
 
 
 
 #rcont {
-  background-color: rgb(5, 78, 78);
+  background-color: chocolate;
   height: 1000px;
   width: 1300px;
 }
@@ -78,13 +85,14 @@ code {
   margin-bottom: 25px;
   height: 200px;
   width: 200px;
-  /* background-color: rgb(199, 22, 199);  */
+  font-weight: bold;
+  
 }
 
 .star {
   
   font-size: 20px;
-  /* color: white; */
+  
    color: goldenrod; 
 }
 
@@ -92,7 +100,7 @@ code {
   
   font-size: 20px;
   color: white; 
-   /* color: goldenrod; */ 
+    
 }
 
 #options {
@@ -101,5 +109,6 @@ code {
   
   height: 150px;
   width: 200px;
+  
   background-color: rgb(160, 83, 147);
 }
