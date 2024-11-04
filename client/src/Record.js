@@ -1,18 +1,20 @@
 import { useState } from 'react';
+import EditRecord from './EditRecord';
 
 function Record({record, deleteRecord, user, showColl}) {
 
     // const [rating, setRating] = useState("")
     
     const [toggle, setToggle] = useState(false)
+    const [toggletwo, setToggleTwo] = useState(false)
 
 
     function handleClick() {
        setToggle(!toggle)
     }
 
-    function handleEdit(e) {
-        console.log(e)
+    function handleToggle() {
+        setToggleTwo(!toggletwo)
     }
 
 
@@ -55,8 +57,8 @@ function handleStyle(e) {
             <p> {record.title.toUpperCase()}</p>
             <img onClick={handleClick} id="record_image" src={record.image} alt="record"></img>
             <span onClick={handleStyle} className="star">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-              {toggle ? <div id="options"> <label>Description:</label> <p>{record.description}</p> <br></br> <button onClick={(record) => deletedRecord(record)}>delete</button> <br></br> <button id={user.id} onClick={(e, record) => addRecord(e, record)}>add</button> <br></br> <button onClick={handleEdit}>edit</button> </div> : null} 
-             
+              {toggle ? <div id="options"> <label>Description:</label> <p>{record.description}</p> <br></br> <button onClick={(record) => deletedRecord(record)}>delete</button> <br></br> <button id={user.id} onClick={(e, record) => addRecord(e, record)}>add</button> <br></br> <button onClick={handleToggle}>edit</button> </div> : null} 
+             {toggletwo ? <EditRecord></EditRecord> : null}
         </div>
 
     )
