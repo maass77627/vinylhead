@@ -19,21 +19,28 @@ code {
 #headimage {
   /* height: 75px;
   width: 75px; */
-
+  float: left;
+  /* margin-left: 25px; */
   height: 200px;
-  width: 200px;
+  width: 250px;
 }
 
 #login {
   height: 50px;
   width: 500px;
   background-color: darkolivegreen;
+  text-align: center;
+  position: fixed;
+  margin-left: 500px;
 }
 
 #recordform {
-  height: 100px;
-  width: 400px;
-  background-color: rgb(154, 238, 9);
+  height: 120px;
+  width: 300px;
+  background-color: darkolivegreen;
+  text-align: center;
+  position: fixed;
+  margin-left: 500px;
 
 }
 
@@ -41,19 +48,23 @@ code {
  
   height: 100px;
   width: 400px;
-  background-color: rgb(167, 110, 159);
+  background-color: darkolivegreen;
+  text-align: center;
+  position: fixed;
+  margin-left: 500px;
   
 }
 
 #userimage {
   height: 100px;
   width: 100px;
+  border-radius: 15px;
 }
 
 .userrecord {
   float: right;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: bold; 
   margin-right: 10px;
   
 }
@@ -69,6 +80,7 @@ code {
   height: 200px;
   width: 200px;
   background-color: black;
+  border-radius: 25px;
 }
 
 
@@ -82,6 +94,7 @@ code {
 .record {
    padding: 25px;
    float: left; 
+   margin-left: 8px;
   margin-bottom: 25px;
   height: 200px;
   width: 200px;
@@ -109,6 +122,8 @@ code {
   
   height: 150px;
   width: 200px;
-  
-  background-color: rgb(160, 83, 147);
+   background-color: white; 
+   border-color: black;
+   border-style: double;
+   /* background-color: rgb(160, 83, 147);  */
 }
