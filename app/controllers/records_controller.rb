@@ -1,3 +1,5 @@
+
+
 class RecordsController < ApplicationController
 
 # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
@@ -14,10 +16,12 @@ class RecordsController < ApplicationController
 
     
     def update
+      
       record = Record.find_by(id: params[:id])
       if record
+        byebug
       record.update(record_params)
-      # byebug
+      #  byebug
       render json: record
     else
       render json: { error: "Record not found" }, status: :not_found

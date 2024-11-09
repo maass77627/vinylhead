@@ -19,15 +19,15 @@ code {
   /* height: 75px;
   width: 75px; */
   float: left;
-  /* margin-left: 25px; */
-  height: 200px;
-  width: 250px;
+   margin-left: 40px; 
+  height: 250px;
+  width: 275px;
 }
 
 #login {
   height: 50px;
   width: 500px;
-  background-color: darkolivegreen;
+  background-color: rgb(173, 248, 43);
   text-align: center;
   position: fixed;
   margin-left: 500px;
@@ -36,7 +36,7 @@ code {
 #recordform {
   height: 120px;
   width: 300px;
-  background-color: darkolivegreen;
+  background-color: rgb(180, 125, 166);
   text-align: center;
   position: fixed;
   margin-left: 500px;
@@ -47,7 +47,7 @@ code {
  
   height: 100px;
   width: 400px;
-  background-color: darkolivegreen;
+  background-color: rgb(180, 224, 59);
   text-align: center;
   position: fixed;
   margin-left: 500px;

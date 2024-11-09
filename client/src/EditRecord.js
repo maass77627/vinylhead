@@ -45,8 +45,9 @@ function EditRecord({record}) {
     }
 
     function handleSubmit(e) {
-        console.log(formData)
+        
         e.preventDefault()
+        console.log(formData)
         console.log(e.target.parentNode.id)
         fetch(`/records/${e.target.parentNode.id}`, {
             method: "PATCH",
@@ -57,7 +58,7 @@ function EditRecord({record}) {
         })
          .then((response) => response.json())
          .then((json) => {
-            setFormData(json)
+            // setFormData(json)
             console.log(json)})
         }
 
