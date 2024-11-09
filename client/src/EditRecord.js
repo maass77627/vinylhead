@@ -11,28 +11,67 @@ function EditRecord({record}) {
 
     })
 
-    function handleSubmit(e) {
-        e.preventDefault()
+    function handleTitleChange(e) {
         console.log(e.target.value)
-        fetch("")
-        .then((response) => response.json())
-        .then((json) => {
-            setFormData(json)
-            console.log(json)})
-        
+        setFormData({
+            ...formData, 
+            title: e.target.value
+        })
+
     }
 
+    function handleImageChange(e) {
+        setFormData({
+            ...formData, 
+            image: e.target.value
+        })
+
+    }
+
+    function handleDescriptionChange(e) {
+        setFormData({
+            ...formData, 
+            description: e.target.value
+        })
+
+    }
+
+    function handleUser_idChange(e) {
+        setFormData({
+            ...formData, 
+            user_id: e.target.value
+        })
+
+    }
+
+    function handleSubmit(e) {
+        console.log(formData)
+        e.preventDefault()
+        console.log(e.target.parentNode.id)
+        fetch(`/records/${e.target.parentNode.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({formData})
+        })
+         .then((response) => response.json())
+         .then((json) => {
+            setFormData(json)
+            console.log(json)})
+        }
+
     return (
-        <div id="edit">
+        <div className="edit" id={record.id}>
             <form onSubmit={handleSubmit}>
-                <lable>Title:</lable>
-                <input type="text" value={formData.title}></input><br></br>
-                <lable>Image:</lable>
-                <input type="text" value={formData.image}></input><br></br>
-                <lable>Description:</lable>
-                <input type="text" value={formData.description}></input><br></br>
-                <lable>user_id:</lable>
-                <input type="text" value={formData.user_id}></input><br></br>
+                <label>Title:</label>
+                <input onChange={handleTitleChange} type="text" value={formData.title}></input><br></br>
+                <label>Image:</label>
+                <input onChange={handleImageChange} type="text" value={formData.image}></input><br></br>
+                <label>Description:</label>
+                <input onChange={handleDescriptionChange} type="text" value={formData.description}></input><br></br>
+                <label>user_id:</label>
+                <input onChange={handleUser_idChange}type="text" value={formData.user_id}></input><br></br>
                 <button>submit</button>
             </form>
 

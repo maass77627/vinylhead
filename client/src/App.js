@@ -88,7 +88,7 @@ function App() {
     <div className="App">
       <header className="App-header">
           {/* <h1>VinylHead</h1> */}
-          <img id="headimage" src="VINYLHead.png" alt="record"></img>
+          <img id="headimage" src="recordlogo.png" alt="record"></img>
           {/* <img id="headimage" src="https://th.bing.com/th/id/OIP.3J7PcVZf3uIt04PUYAvMTwHaHa?rs=1&pid=ImgDetMain record.jpg" alt="record"></img> */}
           {user ? <h2 id="wel">Welcome, {user.username.toUpperCase()}!</h2> : <Login onLogin={setUser} />}
           {user ? <button onClick={(e) => showColl(e)}>My Collection</button> : null}

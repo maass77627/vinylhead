@@ -8,9 +8,9 @@
 
 
 .App-header {
-  background-color: black;
+  background-color: rgb(143, 67, 136);
   
- 
+ border-radius: 15px;
 }
 
 .App-link {

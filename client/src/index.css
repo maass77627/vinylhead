@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: gabriola;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
@@ -17,6 +15,7 @@ code {
   color: white;
 }
 #headimage {
+  border-radius: 20px;
   /* height: 75px;
   width: 75px; */
   float: left;
@@ -73,7 +72,7 @@ code {
   
   height: 175px;
   width: 1300px;
-  background-color: rgb(12, 48, 36);
+  background-color: rgb(6, 109, 75);
 }
 
 #record_image {
@@ -83,18 +82,19 @@ code {
   border-radius: 25px;
 }
 
-#edit {
+.edit {
   text-align: center;
   position: absolute;
   height: 100px;
   width: 300px;
-  background-color: brown;
+  background-color: DarkSeaGreen;
+  border-radius: 25px;
 }
 
 
 #rcont {
   /* background-color: ; */
-  background-color: chocolate;
+  background-color: rgb(96, 230, 147);
   height: 1000px;
   width: 1300px;
 }
@@ -127,7 +127,7 @@ code {
 #options {
   margin-top: -200px;
    position: relative; 
-  
+  border-radius: 20px;
   height: 150px;
   width: 200px;
    background-color: white; 
